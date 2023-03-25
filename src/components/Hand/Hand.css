@@ -1,0 +1,66 @@
+.hand {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  display: block;
+  padding: 18px;
+  cursor: pointer;
+  transition: scale 0.333s ease;
+  border: none;
+}
+.hand:hover {
+  scale: 1.05;
+}
+
+.hand.paper {
+  background-color: #4f6cf0;
+  box-shadow: 0px 6px 2px #2a43c2;
+}
+.hand.scissor {
+  background-color: #EDA61C;
+  box-shadow: 0px 6px 2px #C66D19;
+}
+.hand.rock {
+  background-color: #DD3E58;
+  box-shadow: 0px 6px 2px #9B1634;
+}
+
+.hand_icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #DEDEDE;
+  display: grid;
+  place-content: center;
+  box-shadow: 0px -5px 2px 0px #bcbed5;
+}
+
+.hand.hide .hand_icon  {
+  box-shadow: unset;
+  background-color: #192845;
+}
+
+.hand.disabled {
+  cursor: unset;
+  scale: 1.1;
+}
+.hand:hover.disabled {
+  scale: 1.1;
+}
+
+.hand.hide {
+  background-color: transparent;
+  box-shadow: unset;
+}
+
+@media only screen and (min-width: 800px) {
+  .hand {
+    width: 200px;
+    height: 200px;
+    padding: 24px;
+  }
+  .hand_icon img{
+    width: 80px;
+    height: 80px;
+  }
+}

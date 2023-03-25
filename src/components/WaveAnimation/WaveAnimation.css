@@ -1,0 +1,43 @@
+/* tooks from https://www.codehim.com/html5-css3/circle-wave-animation-using-css/ */
+.container {
+  position: relative;
+  display: block;
+}
+.delay1 {
+  animation: waves 2.5s linear;
+  animation-delay: 0.1s;
+}
+.delay2 {
+  -webkit-animation: waves 2.5s linear 0.7s forwards;
+  animation: waves 2.5s linear 0.7s forwards;
+}
+.delay3 {
+  -webkit-animation: waves 2.5s linear 1.3s forwards;
+  animation: waves 2.5s linear 1.3s forwards;
+}
+.delay4 {
+  -webkit-animation: waves 2.5s linear 1.9s forwards;
+  animation: waves 2.5s linear 1.9s forwards;
+}
+
+.circle {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background: var(--DarkText);
+  transition: 5s ease;
+  position: absolute;
+  top: 0px;
+}
+
+@keyframes waves {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}

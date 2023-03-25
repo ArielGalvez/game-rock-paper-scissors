@@ -1,0 +1,19 @@
+.rules-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rules-title {
+  color: var(--DarkText);
+  padding: 5rem 0;
+}
+
+@media only screen and (min-width: 600px) {
+  .rules-modal {
+    align-items: flex-start;
+  }
+  .rules-title  {
+    padding: 0 0 3rem 0;
+  }
+}

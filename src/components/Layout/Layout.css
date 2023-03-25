@@ -1,0 +1,108 @@
+.layout {
+  width: 100vw;
+  height: 100vh;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+header {
+  padding: 2rem;
+}
+
+.header_box {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 6px;
+  border: 3px solid var(--HeaderOutline);
+  padding: 12px;
+  max-width: 706px;
+  margin: 0 auto;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 700;
+  line-height: 80%;
+  color: white;
+}
+
+.score {
+  border-radius: 4px;
+  background-color: white;
+  width: 80px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+
+.score p {
+  font-size: 9px;
+  color: var(--ScoreText);
+}
+
+.score h3 {
+  font-size: 28px;
+  color: var(--DarkText);
+}
+
+
+.rules {
+  margin-top: auto;
+  padding-bottom: 54px;
+  display: grid;
+  place-items: center;
+}
+.rules button{
+  width: 128px;
+  height: 40px;
+  border: 3px solid var(--HeaderOutline);
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  border-radius: 6px;
+  display: grid;
+  place-content: center;
+}
+
+.rules button:hover{
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+@media only screen and (min-width: 600px) {
+  .layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .score {
+    width: 156px;
+    height: 118px;
+  }
+  .score p {
+    font-size: 16px;
+  }
+  .score h3 {
+    font-size: 50px;
+  }
+  .options {
+    font-size: 32px;
+  }
+  .rules {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+    padding-bottom: 0;
+  }
+}
