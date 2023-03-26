@@ -23,13 +23,11 @@
 .modal button {
   width: 32px;
   height: 32px;
-  font-size: 1.5rem;
   position: absolute;
   bottom: 50px;
   left: 50%;
   border: none;
   border-radius: 50%;
-  padding: 10px;
   cursor: pointer;
   display: grid;
   place-content: center;
@@ -51,7 +49,7 @@
   .modal button {
     bottom: unset;
     left: unset;
-    right: 1.5rem;
-    top: 1.5rem;
+    right: 2rem;
+    top: 2rem;
   }
 }

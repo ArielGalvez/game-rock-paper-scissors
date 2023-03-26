@@ -25,11 +25,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main>
         <header>
           <div className="header_box">
-            <div className="options">
-              <p>ROCK</p>
-              <p>PAPPER</p>
-              <p>SCISSORS</p>
-            </div>
+            <img className="logo" src="/images/logo.svg" alt="logo" />
             <div className="score">
               <p>SCORE</p>
               <h3>{score}</h3>

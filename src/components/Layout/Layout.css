@@ -25,13 +25,10 @@ header {
   margin: 0 auto;
 }
 
-.options {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-weight: 700;
-  line-height: 80%;
-  color: white;
+.logo {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
 }
 
 .score {
@@ -56,14 +53,13 @@ header {
   color: var(--DarkText);
 }
 
-
 .rules {
   margin-top: auto;
   padding-bottom: 54px;
   display: grid;
   place-items: center;
 }
-.rules button{
+.rules button {
   width: 128px;
   height: 40px;
   border: 3px solid var(--HeaderOutline);
@@ -75,16 +71,18 @@ header {
   place-content: center;
 }
 
-.rules button:hover{
+.rules button:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
-
 
 @media only screen and (min-width: 600px) {
   .layout {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .header_box {
+    border-radius: 10px;
   }
   .score {
     width: 156px;
@@ -96,8 +94,9 @@ header {
   .score h3 {
     font-size: 50px;
   }
-  .options {
-    font-size: 32px;
+  .logo {
+    width: auto;
+    height: auto;
   }
   .rules {
     position: absolute;

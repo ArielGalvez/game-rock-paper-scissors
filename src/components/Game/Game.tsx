@@ -104,7 +104,7 @@ export const Game: React.FC<GameProps> = () => {
             <div className="winner">
               <p>
                 {winner.p1Won === false && winner.p2Won === false
-                  ? "NO WINNERS"
+                  ? "TIE"
                   : winner.p1Won
                   ? "YOU WIN"
                   : "COMPUTER WIN"}

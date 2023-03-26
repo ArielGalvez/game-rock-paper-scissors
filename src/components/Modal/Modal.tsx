@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import iconClose from "/images/icon-close.svg";
 import ReactDOM from "react-dom";
 import "./Modal.css";
 
@@ -8,10 +9,15 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <button onClick={onClose}>x</button>
+    <div className="modal" onClick={onClose}>
+      <div className="modal-content" onClick={handleClick}>
+        <button onClick={onClose}>
+          <img src={iconClose} alt="close" />
+        </button>
         {children}
       </div>
     </div>
