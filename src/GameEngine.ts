@@ -1,14 +1,13 @@
-import { Hands } from "./components/Hand/Hand";
-
-const toHands: Record<number, Hands> = {
-  1: Hands.paper,
-  2: Hands.scissor,
-  3: Hands.rock,
-};
+import { Hands } from "./Store";
 
 export const getCompuerHand = () => {
   const randomNumber = Math.floor(Math.random() * 3) + 1;
-  return toHands[randomNumber] || 1;
+  const toHands: Record<number, Hands> = {
+    1: Hands.paper,
+    2: Hands.scissor,
+    3: Hands.rock,
+  };
+  return toHands[randomNumber];
 };
 
 export const getWinner = (p1: Hands | null, p2: Hands | null) => {

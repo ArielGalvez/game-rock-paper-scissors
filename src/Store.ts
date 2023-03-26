@@ -1,12 +1,17 @@
 import { create } from "zustand";
 import { persist } from 'zustand/middleware'
-import { Hands } from "./components/Hand/Hand";
 import { getWinner } from "./GameEngine";
 
 const SCORE_POINT = 1;
 
+export enum Hands {
+  paper = "paper",
+  scissor = "scissor",
+  rock = "rock",
+}
+
 export enum Status {
-  playerChoosinging = "playerChoosinging",
+  playerChoosing = "playerChoosing",
   computerChoosinging = "computerChoosinging",
   showingWinner = "showingWinner",
 }
@@ -29,7 +34,7 @@ export interface GameStore {
 }
 
 const initialState = {
-  status: Status.playerChoosinging,
+  status: Status.playerChoosing,
   score: 0,
   playerHand: null,
   computerHand: null,

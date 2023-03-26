@@ -1,20 +1,13 @@
 import React from "react";
+import { Hands } from "../../Store";
 import { IconPaper, IconScissor, IconRock } from "../Icons/Icons";
 import "./Hand.css";
-
-export type HandsType = "paper" | "scissor" | "rock";
-
-export enum Hands {
-  paper = "paper",
-  scissor = "scissor",
-  rock = "rock",
-}
 
 type HandProps = {
   className?: string;
   type: Hands | null;
   disabled?: boolean;
-  onClick: (type: Hands | null) => void;
+  onClick?: (type: Hands | null) => void;
 };
 
 const icon = {
@@ -28,7 +21,7 @@ export const Hand = (props: HandProps) => {
   const hide = type === null;
 
   const handleOnClick = () => {
-    onClick(type);
+    onClick && onClick(type);
   };
 
   return (

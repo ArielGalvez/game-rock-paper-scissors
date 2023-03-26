@@ -1,0 +1,93 @@
+.result {
+  width: 100%;
+  display: grid;
+  gap: 3.5rem;
+  grid-template-areas: "p1 p2" "winner winner";
+}
+
+.p1 {
+  grid-area: p1;
+}
+.p2 {
+  grid-area: p2;
+}
+.winner {
+  grid-area: winner;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  animation: show linear 0.5s forwards;
+}
+.winner * {
+  white-space: nowrap;
+}
+
+.picked {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.picked p {
+  color: white;
+  text-align: center;
+  font-weight: 700;
+}
+
+.winner p {
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+@keyframes show {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes grow {
+  0% {
+    scale: 0;
+    width: 10px;
+  }
+  100% {
+    scale: 1;
+    width: 220px;
+  }
+}
+
+.button_play_again {
+  width: 220px;
+  height: 50px;
+  font-weight: 700;
+  color: var(--DarkText);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.button_play_again:hover {
+  color: #ab3e53;
+}
+
+@media only screen and (min-width: 800px) {
+  .result {
+    gap: 5rem;
+    grid-template-areas: "p1 winner p2";
+  }
+  .picked {
+    gap: 4.5rem;
+    flex-direction: column-reverse;
+  }
+  .picked p {
+    font-size: 1.5rem;
+  }
+  .winner {
+    width: 0px;
+    animation: grow linear 0.5s forwards;
+  }
+}

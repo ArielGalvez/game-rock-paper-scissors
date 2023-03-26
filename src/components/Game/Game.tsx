@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import { getCompuerHand } from "../../GameEngine";
-import { Status, useGameStore } from "../../Store";
-import { Hand, Hands } from "../Hand/Hand";
-import { WaveAnimation } from "../WaveAnimation/WaveAnimation";
+import { Hands, Status, useGameStore } from "../../Store";
+import { WinnerSection } from "./WinnerSection";
+import { PlayerChoosing } from "./PlayerChoosing";
+import { Result } from "./Result";
 import "./Game.css";
-type GameProps = {};
+
 type Timer = ReturnType<typeof setTimeout>;
 
-export const Game: React.FC<GameProps> = () => {
+export const Game: React.FC = () => {
   const timerComputerTurmRef = useRef<null | Timer | number>(null);
   const timerWinnerRef = useRef<null | Timer | number>(null);
 
@@ -62,59 +63,20 @@ export const Game: React.FC<GameProps> = () => {
 
   return (
     <div className="game">
-      {status === Status.playerChoosinging && (
-        <div className="normal">
-          <Hand
-            type={Hands.paper}
-            className="first"
-            onClick={handleClickHand}
-          />
-          <Hand
-            type={Hands.scissor}
-            className="second"
-            onClick={handleClickHand}
-          />
-          <Hand type={Hands.rock} className="third" onClick={handleClickHand} />
-        </div>
+      {status === Status.playerChoosing && (
+        <PlayerChoosing handleClickHand={handleClickHand} />
       )}
       {(status === Status.computerChoosinging ||
         status === Status.showingWinner) && (
-        <div className="result">
-          <div className="picked p1">
-            {winner.p1Won ? (
-              <WaveAnimation>
-                <Hand type={playerHand} disabled onClick={() => {}} />
-              </WaveAnimation>
-            ) : (
-              <Hand type={playerHand} disabled onClick={() => {}} />
-            )}
-            <p>YOU PICKED</p>
-          </div>
-          <div className="picked p2">
-            {winner.p2Won ? (
-              <WaveAnimation>
-                <Hand type={computerHand} disabled onClick={() => {}} />
-              </WaveAnimation>
-            ) : (
-              <Hand type={computerHand} disabled onClick={() => {}} />
-            )}
-            <p>THE HOUSE PICKED</p>
-          </div>
+        <Result
+          playerHand={playerHand}
+          computerHand={computerHand}
+          winner={winner}
+        >
           {status === Status.showingWinner && (
-            <div className="winner">
-              <p>
-                {winner.p1Won === false && winner.p2Won === false
-                  ? "TIE"
-                  : winner.p1Won
-                  ? "YOU WIN"
-                  : "COMPUTER WIN"}
-              </p>
-              <button className="button_play_again" onClick={playAgain}>
-                PLAY AGAIN
-              </button>
-            </div>
+            <WinnerSection winner={winner} playAgain={playAgain} />
           )}
-        </div>
+        </Result>
       )}
     </div>
   );
