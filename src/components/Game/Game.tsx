@@ -5,10 +5,11 @@ import { Hand, Hands } from "../Hand/Hand";
 import { WaveAnimation } from "../WaveAnimation/WaveAnimation";
 import "./Game.css";
 type GameProps = {};
+type Timer = ReturnType<typeof setTimeout>;
 
 export const Game: React.FC<GameProps> = () => {
-  const timerComputerTurmRef = useRef<null | NodeJS.Timeout | number>(null);
-  const timerWinnerRef = useRef<null | NodeJS.Timeout | number>(null);
+  const timerComputerTurmRef = useRef<null | Timer | number>(null);
+  const timerWinnerRef = useRef<null | Timer | number>(null);
 
   const {
     status,
@@ -33,13 +34,13 @@ export const Game: React.FC<GameProps> = () => {
   const handleClickHand = (hand: Hands | null) => {
     setPlayerHand(hand);
     setStatus(Status.computerChoosinging);
-    timerComputerTurmRef.current = setTimeout(generateComputerHand, 1500);
+    timerComputerTurmRef.current = setTimeout(generateComputerHand, 1000);
   };
 
   const generateComputerHand = () => {
     const generatedHannd = getCompuerHand();
     setComputerHand(generatedHannd);
-    timerWinnerRef.current = setTimeout(showWinner, 1500);
+    timerWinnerRef.current = setTimeout(showWinner, 1000);
   };
 
   const showWinner = () => {
@@ -82,40 +83,20 @@ export const Game: React.FC<GameProps> = () => {
           <div className="picked p1">
             {winner.p1Won ? (
               <WaveAnimation>
-                <Hand
-                  type={playerHand}
-                  className="first"
-                  disabled
-                  onClick={() => {}}
-                />
+                <Hand type={playerHand} disabled onClick={() => {}} />
               </WaveAnimation>
             ) : (
-              <Hand
-                type={playerHand}
-                className="first"
-                disabled
-                onClick={() => {}}
-              />
+              <Hand type={playerHand} disabled onClick={() => {}} />
             )}
             <p>YOU PICKED</p>
           </div>
           <div className="picked p2">
             {winner.p2Won ? (
               <WaveAnimation>
-                <Hand
-                  type={computerHand}
-                  className="first"
-                  disabled
-                  onClick={() => {}}
-                />
+                <Hand type={computerHand} disabled onClick={() => {}} />
               </WaveAnimation>
             ) : (
-              <Hand
-                type={computerHand}
-                className="first"
-                disabled
-                onClick={() => {}}
-              />
+              <Hand type={computerHand} disabled onClick={() => {}} />
             )}
             <p>THE HOUSE PICKED</p>
           </div>

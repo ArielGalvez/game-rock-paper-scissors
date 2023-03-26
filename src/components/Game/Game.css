@@ -5,7 +5,7 @@
 }
 
 .normal {
-  background: url("http://127.0.0.1:3000/assets/images/bg-triangle.svg");
+  background: url("../../assets/bg-triangle.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 200px;

@@ -11,7 +11,7 @@ export enum Hands {
 }
 
 type HandProps = {
-  className: string;
+  className?: string;
   type: Hands | null;
   disabled?: boolean;
   onClick: (type: Hands | null) => void;

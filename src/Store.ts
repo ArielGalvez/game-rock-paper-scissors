@@ -1,6 +1,9 @@
 import { create } from "zustand";
+import { persist } from 'zustand/middleware'
 import { Hands } from "./components/Hand/Hand";
 import { getWinner } from "./GameEngine";
+
+const SCORE_POINT = 1;
 
 export enum Status {
   playerChoosinging = "playerChoosinging",
@@ -36,7 +39,9 @@ const initialState = {
   },
 };
 
-export const useGameStore = create<GameStore>((set) => ({
+export const useGameStore = create<GameStore>()(
+  persist(
+  (set) => ({
   ...initialState,
   setStatus: (status) => set((state) => ({ ...state, status })),
   setPlayerHand: (playerHand) => set((state) => ({ ...state, playerHand })),
@@ -51,11 +56,14 @@ export const useGameStore = create<GameStore>((set) => ({
           !winner.p1Won && !winner.p2Won
             ? state.score
             : winner.p1Won
-            ? state.score + 1
-            : state.score - 1,
+            ? state.score + SCORE_POINT
+            : state.score - SCORE_POINT,
       };
       return newState;
     }),
   resetAll: () =>
     set((state) => ({ ...state, ...initialState, score: state.score })),
-}));
+}), {
+  name: 'game-storage'
+})
+);
